@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Exam Performance Indicator</title>
+    <style>
+        /* General styling */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+            color: #333;
+        }
+
+        /* Header styles */
+        h1 {
+            font-size: 2.5rem;
+            color: #4b6584;
+            margin-bottom: 0.5em;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        p {
+            font-size: 1.2rem;
+            color: #34495e;
+            text-align: center;
+            max-width: 600px;
+            margin-bottom: 1.5em;
+        }
+
+        /* Button styling */
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            font-size: 1rem;
+            color: #fff;
+            background-color: #4b6584;
+            border: none;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #34495e;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn:focus {
+            outline: none;
+            box-shadow: 0 0 0 4px rgba(75, 101, 132, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the Student Exam Performance Indicator</h1>
+    <p>This application uses machine learning to help predict student performance based on various inputs. 
+    Enter details like gender, ethnicity, parental education level, and scores, and get a prediction on math performance.</p>
+    <a href="{{ url_for('predict') }}" class="btn">Go to Prediction Form</a>
+</body>
+</html>
