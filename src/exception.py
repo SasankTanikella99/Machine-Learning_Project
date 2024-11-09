@@ -1,4 +1,11 @@
+# import logger.py from src folder
+import os
 import sys
+sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), "src"))
+
+# Function to handle exceptions
+import logging
+
 
 # Function to extract detailed error information
 def error_handling_details(error):
@@ -33,3 +40,12 @@ class customExceptionHandler(Exception):
     def __str__(self):
         return self.error_message
 
+# Main block for testing custom exception handling
+if __name__ == "__main__":
+    try:
+        # Example of an operation that causes an exception (division by zero)
+        a = 1 / 0
+    except Exception as e:
+        # Raise custom exception with detailed information
+        logging.error("Divide by zero exception!!!", exc_info=True)
+        raise customExceptionHandler(e)  # Use from e for proper exception chaining
