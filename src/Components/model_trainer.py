@@ -23,14 +23,35 @@ except ImportError as e:
     raise
 
 @dataclass
+# The class `ModelTrainer_Config` contains a configuration setting for the file path where the trained
+# model will be saved.
 class ModelTrainer_Config:
     train_model_file_path = os.path.join("artifacts_output", "model.pkl")
 
 class ModelTrainer:
     def __init__(self):
+        """
+        The `__init__` function initializes an instance of a class with a `model_trainer_config`
+        attribute set to an instance of the `ModelTrainer_Config` class.
+        """
         self.model_trainer_config = ModelTrainer_Config()
 
     def initiate_model_trainer(self, train_array, test_array):
+        """
+        The function `initiate_model_trainer` trains multiple regression models, evaluates their
+        performance, selects the best model based on a threshold score, saves the best model, and
+        returns the R2 score of the predictions.
+        
+        :param train_array: The `initiate_model_trainer` function you provided seems to be a part of a
+        machine learning model training process. It takes `train_array` and `test_array` as input data
+        for training and testing the models
+        :param test_array: The `test_array` parameter in the `initiate_model_trainer` function is used
+        to hold the test data for evaluating the trained models. It is expected to be a 2D numpy array
+        where each row represents a sample and each column represents a feature or the target variable.
+        The last column
+        :return: The function `initiate_model_trainer` returns the R2 score calculated based on the best
+        model found during training.
+        """
         try:
             # Check for valid train_array and test_array
             if train_array is None or test_array is None:
