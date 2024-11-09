@@ -19,6 +19,8 @@ try:
     from src.utils import save_obj
     from src.Components.data_transformation import DataTransformation_Config
     from src.Components.data_transformation import DataTransformation
+    from src.Components.model_trainer import ModelTrainer_Config
+    from src.Components.model_trainer import ModelTrainer
 
 except ImportError as e:
     print(f"Error importing local modules: {e}")
@@ -86,7 +88,10 @@ if __name__ == "__main__":
         train_data, test_data, raw_data = obj.initiating_data_ingestion()
 
         data_transformation = DataTransformation()
-        data_transformation.initiate_data_transformer(train_data, test_data)
+        train_arr, test_arr,_=data_transformation.initiate_data_transformer(train_data, test_data)
+
+        modeltrainer=ModelTrainer()
+        print(modeltrainer.initiate_model_trainer(train_arr, test_arr))
         
     except Exception as e:
         print(f"An error occurred: {e}")

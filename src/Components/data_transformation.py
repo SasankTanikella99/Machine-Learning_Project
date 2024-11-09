@@ -9,6 +9,9 @@ from sklearn.impute import SimpleImputer
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler, OneHotEncoder
 
+# The code snippet you provided is setting up the project root path and adding it to the system path
+# in order to import local modules from the project structure. Here's a breakdown of what each part is
+# doing:
 PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "../.."))
 sys.path.append(PROJECT_ROOT)
 
@@ -79,7 +82,19 @@ class DataTransformation:
             raise customExceptionHandler(e)
 
 
+    """
+        The function `initiate_data_transformer` reads train and test data, prepares the data, creates a
+        data transformer object, and saves the preprocessor object.
+        
+        :param train_path: The `train_path` parameter is the file path to the training data CSV file
+        :param test_path: The `test_path` parameter in the `initiate_data_transformer` function is the
+        file path where the test data is stored. This function reads the test data from the specified
+        file path to perform data transformation tasks
+        :return: (train_arr, test_arr, self.data_transformation_config.preprocessor_object_file_path)
+    """
+
     def initiate_data_transformer(self,train_path,test_path):
+        
         try:
             train_dataf = pd.read_csv(train_path)
             test_dataf = pd.read_csv(test_path)
